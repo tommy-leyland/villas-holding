@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Villa Oceano &amp; Villa Oeste — Silver Coast, Portugal | Birch Stays</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Lexend:wght@200;300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --offwhite:#F7F6F2; --sand:#ECE6DC; --stone:#D2CABC; --sage:#B8BAB4;
+    --gold:#B69068; --charcoal:#383838; --grey:#757575; --border:#E3E3E3;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{background:var(--offwhite);color:var(--charcoal);font-family:'Lexend',Helvetica,Arial,sans-serif;font-weight:300;line-height:1.65;-webkit-font-smoothing:antialiased}
+  h1,h2,h3{font-family:'Cormorant Garamond',Georgia,serif;font-weight:400;line-height:1.08;color:var(--charcoal)}
+  a{color:inherit;text-decoration:none}
+  .wrap{max-width:1180px;margin:0 auto;padding:0 28px}
+
+  /* Top bar */
+  .nav{display:flex;align-items:center;justify-content:center;padding:22px 28px;border-bottom:1px solid var(--border);background:var(--offwhite);position:sticky;top:0;z-index:20}
+  .nav img{height:42px}
+
+  /* Notice strip */
+  .notice{background:var(--charcoal);color:var(--sand);text-align:center;font-size:13px;letter-spacing:.02em;padding:10px 20px}
+  .notice b{color:var(--gold);font-weight:400}
+
+  /* Section intro */
+  .intro{text-align:center;padding:64px 28px 8px}
+  .intro .kick{text-transform:uppercase;letter-spacing:.34em;font-size:12px;color:var(--gold);margin-bottom:18px}
+  .intro h1{font-size:clamp(40px,6vw,68px);margin-bottom:16px}
+  .intro p{max-width:640px;margin:0 auto;color:var(--grey);font-size:17px}
+  .divider{width:54px;height:1px;background:var(--gold);margin:34px auto 0}
+
+  /* Villa block */
+  .villa{padding:60px 0 20px}
+  .villa-head{display:flex;align-items:flex-end;justify-content:space-between;flex-wrap:wrap;gap:14px;margin-bottom:22px}
+  .villa-head .loc{text-transform:uppercase;letter-spacing:.26em;font-size:11px;color:var(--gold);margin-bottom:8px}
+  .villa-head h2{font-size:clamp(34px,4.4vw,54px)}
+  .fav{display:inline-block;font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--gold);border:1px solid var(--gold);border-radius:999px;padding:6px 14px}
+
+  /* Gallery */
+  .gallery{display:grid;grid-template-columns:2fr 1fr 1fr;grid-template-rows:150px 150px 150px;gap:10px;border-radius:6px;overflow:hidden}
+  .gallery .g{background-size:cover;background-position:center;background-color:var(--stone);min-height:100%;transition:transform .5s ease}
+  .gallery .g:hover{transform:scale(1.04)}
+  .gallery .hero{grid-column:1;grid-row:1 / span 3}
+  @media(max-width:720px){
+    .gallery{grid-template-columns:1fr 1fr;grid-template-rows:210px repeat(3,130px)}
+    .gallery .hero{grid-column:1 / span 2;grid-row:1}
+  }
+
+  /* Body layout */
+  .body{display:grid;grid-template-columns:1.7fr 1fr;gap:52px;margin-top:44px;align-items:start}
+  @media(max-width:860px){.body{grid-template-columns:1fr;gap:34px}}
+
+  .facts{display:flex;gap:40px;border-top:1px solid var(--border);border-bottom:1px solid var(--border);padding:22px 0;margin-bottom:30px}
+  .fact .n{font-family:'Cormorant Garamond',serif;font-size:36px;color:var(--gold);line-height:1}
+  .fact .l{text-transform:uppercase;letter-spacing:.16em;font-size:10px;color:var(--grey);margin-top:6px}
+
+  .lede{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:24px;color:var(--charcoal);margin-bottom:22px;line-height:1.4}
+  .copy p{margin-bottom:16px;color:var(--charcoal)}
+  .copy .muted{color:var(--grey);font-size:14px;font-style:italic}
+
+  .tags{margin-top:30px}
+  .tags h3{font-family:'Lexend',sans-serif;font-weight:400;text-transform:uppercase;letter-spacing:.2em;font-size:12px;color:var(--charcoal);margin-bottom:16px}
+  .chips{display:flex;flex-wrap:wrap;gap:9px}
+  .chip{background:var(--sand);border:1px solid var(--border);border-radius:999px;padding:8px 16px;font-size:13px;color:var(--charcoal)}
+
+  /* Booking card */
+  .card{background:var(--sand);border:1px solid var(--border);border-radius:8px;padding:32px 30px;position:sticky;top:96px}
+  .card .from{text-transform:uppercase;letter-spacing:.16em;font-size:10px;color:var(--grey)}
+  .card .price{font-family:'Cormorant Garamond',serif;font-size:44px;color:var(--charcoal);line-height:1.1;margin:4px 0 2px}
+  .card .price small{font-family:'Lexend',sans-serif;font-size:14px;color:var(--grey);font-weight:300}
+  .card .row{display:flex;justify-content:space-between;font-size:14px;color:var(--charcoal);padding:14px 0;border-bottom:1px solid var(--border)}
+  .card .row:first-of-type{border-top:1px solid var(--border);margin-top:22px}
+  .btn{display:block;text-align:center;background:var(--gold);color:#fff;font-family:'Lexend',sans-serif;letter-spacing:.14em;text-transform:uppercase;font-size:13px;padding:15px;border-radius:6px;margin-top:24px}
+  .card .fine{font-size:12px;color:var(--grey);text-align:center;margin-top:14px}
+
+  /* Footer */
+  footer{background:var(--charcoal);color:var(--sand);text-align:center;padding:60px 28px 64px;margin-top:70px}
+  footer .fnote{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:26px;color:var(--sand);max-width:640px;margin:0 auto 28px}
+  footer .contact{font-size:15px;color:var(--stone);line-height:2}
+  footer .contact b{color:var(--gold);font-weight:400}
+  footer .tag{text-transform:uppercase;letter-spacing:.32em;font-size:11px;color:var(--gold);margin-top:30px}
+
+  .sep{border:0;border-top:1px solid var(--border);max-width:1180px;margin:20px auto 0}
+</style>
+</head>
+<body>
+
+<div class="notice">Our main site is briefly offline for maintenance. <b>Here are the two homes we wanted to show you.</b></div>
+
+<nav class="nav"><img src="logo.jpg" alt="Birch Stays"></nav>
+
+<section class="intro">
+  <div class="kick">The Silver Coast &middot; Portugal</div>
+  <h1>Two villas above Praia do Vau</h1>
+  <p>A matching pair of design-led homes set on Portugal's Silver Coast, an hour north of Lisbon, where the Atlantic does most of the talking.</p>
+  <div class="divider"></div>
+</section>
+
+<!-- ============ VILLA OCEANO ============ -->
+<section class="villa wrap">
+  <div class="villa-head">
+    <div>
+      <div class="loc">Vau, Óbidos &middot; Portugal</div>
+      <h2>Villa Oceano</h2>
+    </div>
+    <span class="fav">Now taking bookings</span>
+  </div>
+
+  <div class="gallery">
+    <div class="g hero" style="background-image:url('images/oceano-1.jpg')"></div>
+    <div class="g" style="background-image:url('images/oceano-2.jpg')"></div>
+    <div class="g" style="background-image:url('images/oceano-3.jpg')"></div>
+    <div class="g" style="background-image:url('images/oceano-4.jpg')"></div>
+    <div class="g" style="background-image:url('images/oceano-5.jpg')"></div>
+    <div class="g" style="background-image:url('images/oceano-6.jpg')"></div>
+    <div class="g" style="background-image:url('images/oceano-7.jpg')"></div>
+  </div>
+
+  <div class="body">
+    <div>
+      <div class="facts">
+        <div class="fact"><div class="n">3</div><div class="l">Bedrooms</div></div>
+        <div class="fact"><div class="n">3</div><div class="l">Bathrooms</div></div>
+        <div class="fact"><div class="n">6</div><div class="l">Guests</div></div>
+      </div>
+      <div class="copy">
+        <p class="lede">Timber, stone and a pool that catches the afternoon.</p>
+        <p>Villa Oceano sits on the coast at Vau, on the edge of Óbidos. Exposed timber beams, natural stone and warm neutral interiors run from the open-plan living space through to the bedrooms, opening onto a private pool and terrace. Three bedrooms, three bathrooms and space for six make it easy for two couples or a small family to settle in.</p>
+      </div>
+      <div class="tags">
+        <h3>Highlights</h3>
+        <div class="chips">
+          <span class="chip">Coastal home</span>
+          <span class="chip">Global escape</span>
+          <span class="chip">Luxury stay</span>
+          <span class="chip">Couples</span>
+          <span class="chip">Families</span>
+          <span class="chip">New</span>
+        </div>
+      </div>
+    </div>
+
+    <aside class="card">
+      <div class="from">From</div>
+      <div class="price">£520 <small>/ night</small></div>
+      <div class="row"><span>Bedrooms</span><span>3</span></div>
+      <div class="row"><span>Sleeps</span><span>6 guests</span></div>
+      <div class="row"><span>Location</span><span>Vau, Óbidos</span></div>
+    </aside>
+  </div>
+</section>
+
+<hr class="sep">
+
+<!-- ============ VILLA OESTE ============ -->
+<section class="villa wrap">
+  <div class="villa-head">
+    <div>
+      <div class="loc">Vau, Óbidos &middot; Portugal</div>
+      <h2>Villa Oeste</h2>
+    </div>
+    <span class="fav">Now taking bookings</span>
+  </div>
+
+  <div class="gallery">
+    <div class="g hero" style="background-image:url('images/oeste-1.jpg')"></div>
+    <div class="g" style="background-image:url('images/oeste-2.jpg')"></div>
+    <div class="g" style="background-image:url('images/oeste-3.jpg')"></div>
+    <div class="g" style="background-image:url('images/oeste-4.jpg')"></div>
+    <div class="g" style="background-image:url('images/oeste-5.jpg')"></div>
+    <div class="g" style="background-image:url('images/oeste-6.jpg')"></div>
+    <div class="g" style="background-image:url('images/oeste-7.jpg')"></div>
+  </div>
+
+  <div class="body">
+    <div>
+      <div class="facts">
+        <div class="fact"><div class="n">3</div><div class="l">Bedrooms</div></div>
+        <div class="fact"><div class="n">3</div><div class="l">Bathrooms</div></div>
+        <div class="fact"><div class="n">6</div><div class="l">Guests</div></div>
+      </div>
+      <div class="copy">
+        <p class="lede">Bright, light-filled and built for the sun.</p>
+        <p>Villa Oeste shares Oceano's stretch of coast at Vau but takes a lighter, brighter turn: white walls, pale oak, an open-plan living space over two floors and a private pool with a lawn running down to the fence line. Three bedrooms, three bathrooms and room for six, ideal alongside its neighbour for two families or a group who want a house each.</p>
+      </div>
+      <div class="tags">
+        <h3>Highlights</h3>
+        <div class="chips">
+          <span class="chip">Coastal home</span>
+          <span class="chip">Global escape</span>
+          <span class="chip">Luxury stay</span>
+          <span class="chip">Couples</span>
+          <span class="chip">Families</span>
+          <span class="chip">New</span>
+        </div>
+      </div>
+    </div>
+
+    <aside class="card">
+      <div class="from">From</div>
+      <div class="price">£553 <small>/ night</small></div>
+      <div class="row"><span>Bedrooms</span><span>3</span></div>
+      <div class="row"><span>Sleeps</span><span>6 guests</span></div>
+      <div class="row"><span>Location</span><span>Vau, Óbidos</span></div>
+    </aside>
+  </div>
+</section>
+
+<footer>
+  <div class="fnote">Stay somewhere worth talking about.</div>
+  <div class="contact">
+    <b>Email</b>&nbsp; info@birchstays.co.uk<br>
+    <b>Phone</b>&nbsp; 01407 728099<br>
+    <b>Web</b>&nbsp; birchstays.co.uk
+  </div>
+  <div class="tag">Designed Holidays</div>
+</footer>
+
+</body>
+</html>
